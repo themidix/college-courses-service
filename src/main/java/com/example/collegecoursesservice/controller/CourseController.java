@@ -20,7 +20,7 @@ public class CourseController {
     }
 
 
-    @RequestMapping(method = RequestMethod.GET,value = "/courses",produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(method = RequestMethod.GET,value = "/getCourseList",produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Course> getCourseList(){
         return courseService.getCourseList();
     }
