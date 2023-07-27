@@ -38,7 +38,7 @@ public class CourseController {
     }
 
     //@ApiOperation(value ="Edit a course", response= String.class)
-    @RequestMapping(method = RequestMethod.PUT,value = "/courses",produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(method = RequestMethod.PUT,value = "/editCourse",produces = MediaType.APPLICATION_JSON_VALUE)
     public String editCourse(@RequestBody Course course){
         return courseService.editCourse(course);
     }
