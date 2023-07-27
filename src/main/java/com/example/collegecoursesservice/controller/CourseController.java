@@ -3,6 +3,7 @@ package com.example.collegecoursesservice.controller;
 import com.example.collegecoursesservice.model.Course;
 import com.example.collegecoursesservice.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,7 +20,7 @@ public class CourseController {
     }
 
 
-    @RequestMapping(method = RequestMethod.GET,value = "/courses")
+    @RequestMapping(method = RequestMethod.GET,value = "/courses",produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Course> getCourseList(){
         return courseService.getCourseList();
     }
