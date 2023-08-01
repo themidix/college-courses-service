@@ -1,6 +1,5 @@
 package com.example.collegecoursesservice.model;
 
-//import io.swagger.annotations.ApiModelProperty;
 import lombok.*;
 
 @Getter

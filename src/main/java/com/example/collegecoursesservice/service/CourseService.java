@@ -3,7 +3,6 @@ package com.example.collegecoursesservice.service;
 import com.example.collegecoursesservice.model.Course;
 import com.example.collegecoursesservice.repository.CourseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
