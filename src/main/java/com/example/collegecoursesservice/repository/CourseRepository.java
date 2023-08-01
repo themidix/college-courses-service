@@ -2,9 +2,12 @@ package com.example.collegecoursesservice.repository;
 
 import com.example.collegecoursesservice.model.Course;
 import org.springframework.stereotype.Repository;
+import org.webjars.NotFoundException;
 
 import java.util.ArrayList;
+import java.util.EmptyStackException;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class CourseRepository {
@@ -15,14 +18,16 @@ public class CourseRepository {
         return courseList;
     }
 
-    public Course getCourseById(int id){
-        try{
-            if(id > 0)
-                return courseList.stream().filter(course -> course.getId() == id).findFirst().get();
-        }catch(Exception e){
-            e.printStackTrace();
+    public Course getCourseById(int id) {
+        Optional<Course> optionalCourse = courseList.stream()
+                .filter(course -> course.getId() == id)
+                .findFirst();
+
+        if (optionalCourse.isEmpty()) {
+            throw new EmptyStackException();
         }
-        throw new NullPointerException("Unable to find course with this id");
+
+        return optionalCourse.get();
     }
 
     public String insertCourse(Course course){
