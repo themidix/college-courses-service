@@ -20,31 +20,28 @@ public class CourseController {
     }
 
 
-    @RequestMapping(method = RequestMethod.GET,value = "/getCourseList",produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path = "/getCourseList")
     public List<Course> getCourseList(){
         return courseService.getCourseList();
     }
 
-   // @ApiOperation(value ="fetch a course by Id", response= Course.class)
-    @RequestMapping(method = RequestMethod.GET,value = "/courses/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
+
+    @GetMapping(path = "/courses/{id}")
     public Course getCourseById(@PathVariable int id){
         return courseService.getCourseById(id);
     }
 
-    //@ApiOperation(value ="Insert a new course", response= String.class)
-    @RequestMapping(method = RequestMethod.POST,value = "/courses",produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(path = "/courses")
     public String insertCourse(@RequestBody Course course){
         return courseService.insertCourse(course);
     }
 
-    //@ApiOperation(value ="Edit a course", response= String.class)
-    @RequestMapping(method = RequestMethod.PUT,value = "/editCourse",produces = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(path = "/editCourse")
     public String editCourse(@RequestBody Course course){
         return courseService.editCourse(course);
     }
 
-   // @ApiOperation(value ="Edit a course", response= String.class)
-    @RequestMapping(method = RequestMethod.DELETE,value = "/courses/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
+    @DeleteMapping(path = "/courses/{id}")
     public String deleteCourse(@PathVariable int id){
         return courseService.deleteCourse(id);
     }

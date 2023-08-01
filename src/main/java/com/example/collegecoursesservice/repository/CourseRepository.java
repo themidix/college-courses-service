@@ -1,16 +1,21 @@
 package com.example.collegecoursesservice.repository;
 
 import com.example.collegecoursesservice.model.Course;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.EmptyStackException;
 import java.util.List;
 import java.util.Optional;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @Repository
+@Slf4j
 public class CourseRepository {
 
+    private static final Logger LOGGER = Logger.getLogger(CourseRepository.class.getName());
     List<Course> courseList = new ArrayList<>();
 
     public List<Course> getCourseList(){
@@ -35,7 +40,7 @@ public class CourseRepository {
                 courseList.add(course);
             return "Course added successfully!";
         }catch (Exception e){
-            e.printStackTrace();
+            LOGGER.log(Level.SEVERE,e.getMessage());
         }
         return "unable to add course";
     }
@@ -58,7 +63,7 @@ public class CourseRepository {
                 courseList.removeIf(course -> course.getId() == id);
             return "Course with ID# is " + id + "successfully deleted!";
         }catch(Exception e){
-            e.printStackTrace();
+            LOGGER.log(Level.SEVERE,e.getMessage());
         }
         return "Unable to delete course with ID#" + id;
     }
