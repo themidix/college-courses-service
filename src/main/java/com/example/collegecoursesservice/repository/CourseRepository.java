@@ -2,7 +2,6 @@ package com.example.collegecoursesservice.repository;
 
 import com.example.collegecoursesservice.model.Course;
 import org.springframework.stereotype.Repository;
-import org.webjars.NotFoundException;
 
 import java.util.ArrayList;
 import java.util.EmptyStackException;
